@@ -1,11 +1,164 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PasswordGenerator from "../components/PasswordGenerator.astro"
+import FeatureCard from "../components/FeatureCard.astro"
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Generador de Contraseñas</title>
+
+		<nav>🔐 Password Generator</nav>
+
+		<!-- SECCION 1 -->
+
+		<section class="hero">
+			<h1>Generador de Contraseñas Seguras</h1>
+			<p>Crea contraseñas fuertes para proteger tus cuentas</p>
+		</section>
+
+		<!-- SECCION 2 APP -->
+
+		<PasswordGenerator />
+
+		<!-- SECCION 3 INFO -->
+
+		<section class="features">
+
+			<FeatureCard
+			icon="🔒"
+			title="Seguro"
+			text="Genera contraseñas difíciles de hackear."
+			/>
+			
+			<FeatureCard
+			icon="⚡"
+			title="Rápido"
+			text="Crea contraseñas en un solo clic."
+			/>
+			
+			<FeatureCard
+			icon="📱"
+			title="Responsive"
+			text="Funciona en celular y computadora."
+			/>
+			
+			</section>
+
+		<footer>Proyecto escolar con Astro</footer>
+
+		<style>
+			body {
+				margin: 0;
+				font-family: Arial, Helvetica, sans-serif;
+				background: linear-gradient(135deg, #1a1a2e, #16213e);
+				color: white;
+			}
+
+			/* NAVBAR */
+
+			nav {
+				display: flex;
+				justify-content: center;
+				padding: 20px;
+				font-weight: bold;
+				letter-spacing: 1px;
+			}
+
+			/* HERO */
+
+			.hero {
+				text-align: center;
+				padding: 60px 20px;
+			}
+
+			.hero h1 {
+				font-size: 40px;
+				margin-bottom: 10px;
+			}
+
+			/* GENERATOR CARD */
+
+			.generator {
+				display: flex;
+				justify-content: center;
+				padding: 40px;
+			}
+
+			.card {
+				background: #0f3460;
+				padding: 40px;
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+				width: 350px;
+				text-align: center;
+			}
+
+			.password {
+				font-size: 20px;
+				background: #16213e;
+				padding: 10px;
+				border-radius: 8px;
+				margin-bottom: 20px;
+				word-break: break-all;
+			}
+
+			/* BUTTON */
+
+			button {
+				background: #e94560;
+				border: none;
+				padding: 12px 20px;
+				border-radius: 8px;
+				color: white;
+				font-weight: bold;
+				cursor: pointer;
+				transition: 0.2s;
+			}
+
+			button:hover {
+				background: #ff2e63;
+				transform: scale(1.05);
+			}
+
+			/* FEATURES */
+
+			.features {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 20px;
+				padding: 60px;
+			}
+
+			.feature {
+				background: #0f3460;
+				padding: 20px;
+				border-radius: 10px;
+				text-align: center;
+			}
+
+			/* FOOTER */
+
+			footer {
+				text-align: center;
+				padding: 30px;
+				opacity: 0.7;
+			}
+
+			/* RESPONSIVE */
+
+			@media (max-width: 600px) {
+				.hero h1 {
+					font-size: 28px;
+				}
+
+				.card {
+					width: 90%;
+				}
+
+				.features {
+					padding: 30px;
+				}
+			}
+		</style>
+	
