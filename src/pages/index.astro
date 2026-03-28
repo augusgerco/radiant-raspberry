@@ -1,4 +1,4 @@
----
+npm i---
 import PasswordGenerator from "../components/PasswordGenerator.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 ---
@@ -71,6 +71,15 @@ import FeatureCard from "../components/FeatureCard.astro";
 		font-size: 16px;
 		opacity: 0.8;
 		margin-top: 10px;
+	}
+
+	#tip{
+	transition: 0.3s;
+	}
+
+	#tip.animate{
+	opacity: 0;
+	transform: translateY(5px);
 	}
 
 /* título centrado */
@@ -302,8 +311,17 @@ document.addEventListener("DOMContentLoaded", () => {
     title.style.setProperty("--y", "50%")
   })
 
-  function loadTip(){ //evalue usar una API para esto pero no habia ninguna buena gratis con relacion a ciberseguridad asi q hice esto
-  const tips = [
+  	window.loadTip = function(){ //evalue usar una API para esto pero no habia ninguna buena gratis con relacion a ciberseguridad asi q hice esto
+  
+	const tipEl = document.getElementById("tip")
+
+	tipEl.classList.add("animate")
+
+	setTimeout(() => {
+	tipEl.classList.remove("animate")
+	}, 200)
+
+	const tips = [
     "Usá contraseñas largas y únicas para cada cuenta.",
     "No reutilices la misma contraseña en diferentes sitios.",
     "Activá la verificación en dos pasos (2FA).",
