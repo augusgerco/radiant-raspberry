@@ -18,7 +18,7 @@ import FeatureCard from "../components/FeatureCard.astro";
 	<h1 id="title" class="glow-title" data-text="Generador de Contraseñas Seguras">
   Generador de Contraseñas Seguras
 	</h1>
-	<p>Crea contraseñas fuertes para proteger tus cuentas</p>
+	<p id="tip">Cargando consejo de seguridad...</p>
 </section>
 
 <!-- SECCION 2 APP -->
@@ -65,6 +65,12 @@ import FeatureCard from "../components/FeatureCard.astro";
 		font-weight: bold;
 		letter-spacing: 1px;
 		text-align: center;
+	}
+
+	#tip{
+		font-size: 16px;
+		opacity: 0.8;
+		margin-top: 10px;
 	}
 
 /* título centrado */
@@ -256,7 +262,6 @@ import FeatureCard from "../components/FeatureCard.astro";
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== THEME TOGGLE =====
   const toggle = document.getElementById("themeToggle")
 
   toggle.addEventListener("click", () => {
@@ -278,7 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.innerText = "☀️"
   }
 
-  // ===== GLOW TITLE =====
   const title = document.getElementById("title")
 
   function updateGlow(e){
@@ -298,5 +302,26 @@ document.addEventListener("DOMContentLoaded", () => {
     title.style.setProperty("--y", "50%")
   })
 
+  function loadTip(){ //evalue usar una API para esto pero no habia ninguna buena gratis con relacion a ciberseguridad asi q hice esto
+  const tips = [
+    "Usá contraseñas largas y únicas para cada cuenta.",
+    "No reutilices la misma contraseña en diferentes sitios.",
+    "Activá la verificación en dos pasos (2FA).",
+    "No compartas tus contraseñas con nadie.",
+    "Evitá usar datos personales en tus contraseñas.",
+    "Actualizá tus contraseñas regularmente.",
+    "Usá un gestor de contraseñas para mayor seguridad.",
+    "Desconfiá de correos o links sospechosos.",
+    "No guardes contraseñas en dispositivos públicos.",
+    "Utilizá combinaciones de letras, números y símbolos."
+  ]
+
+  const randomTip = tips[Math.floor(Math.random() * tips.length)]
+
+  document.getElementById("tip").innerText = "💡 " + randomTip
+}
+
+loadTip()
 })
+
 </script>
